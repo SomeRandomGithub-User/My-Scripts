@@ -417,4 +417,9 @@ Section:NewButton("SBR Stage 4 TP", "use this if there is zone", function()
                 ----Tp Bypass
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1176, 362, -224)
             end)
-            S
+            Section:NewButton("Bridge TP", "Tps u to the last stage of SBR", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1805, 414, 9007)
+end)
+Section:NewButton("Item Farm credits to French Spy", "item farm poggers", function()
+    print("Work in progress")
+end)
