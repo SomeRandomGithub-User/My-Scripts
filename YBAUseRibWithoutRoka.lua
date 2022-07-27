@@ -1,4 +1,7 @@
-local player = game:GetService("Players").LocalPlayerlocal function useRib()
+local player = game:GetService("Players").LocalPlayer
+
+
+local function useArrow()
     local args = {
     [1] = "EndDialogue",
     [2] = {
@@ -35,8 +38,8 @@ print(stand)
 end
 
 --------------------------------------------------------
-useRib()
+useArrow()
 getWorthi()
 wait(5)
 equipStand()
-equipStand()
+equipstand()
