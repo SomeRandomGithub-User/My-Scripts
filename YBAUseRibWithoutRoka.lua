@@ -40,4 +40,5 @@ end
 --------------------------------------------------------
 useArrow()
 getWorthi()
-player.CharacterAdded:Connect(equipStand)
+equipStand()
+equipStand()
