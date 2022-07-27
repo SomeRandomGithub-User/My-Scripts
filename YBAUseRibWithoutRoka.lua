@@ -40,5 +40,6 @@ end
 --------------------------------------------------------
 useArrow()
 getWorthi()
+task.wait(5)
 equipStand()
 equipStand()
