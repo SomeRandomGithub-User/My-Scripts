@@ -19,7 +19,7 @@ print(Opponent)
 ------------------------------------------------------------------- check if opponent is near enough to tp w/o tp bypass
 local function TeleportToThePlayer()
     local AbleToBeTeleportedTo = nil
-if (HRP.Position - Opponent.Character.HumanoidRootPart.Position).magnitude <= RangeOpponentHasToBeInToTP then
+if (HRP.Position - Opponent.Character.HumanoidRootPart.Position).magnitude <= 45 then
    AbleToBeTeleportedTo = true
    else
    AbleToBeTeleportedTo = false
@@ -31,7 +31,7 @@ else print(Opponent.Name .. " is too far.") end
 end
 ---- The Main Function!!!!!
 UIs.InputBegan:Connect(function(pressed)
-if pressed.KeyCode == Enum.KeyCode.L then
+if pressed.KeyCode == Enum.KeyCode[ActivatorKey] then
 TeleportToThePlayer()
 end
 end)
