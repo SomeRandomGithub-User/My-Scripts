@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+local player = game:GetService("Players").LocalPlayer
+local HRP = player.Character.HumanoidRootPart
+local UIs = game:GetService("UserInputService") -- comes in handy later
+-----------------------------------------------------------------------------------
+local plr = game.Players.LocalPlayer
+local Opponent = nil
+local PossibleOpponents = {}
+for _, otherPlayer in pairs(game.Players:GetPlayers()) do
+   if otherPlayer ~= plr then
+     table.insert(PossibleOpponents,otherPlayer)
+   end
+end
+
+print(PossibleOpponents[1])
+local Opponent = PossibleOpponents[1]
+print(Opponent)
+---------------------------------------------------------------------------------
+------------------------------------------------------------------- check if opponent is near enough to tp w/o tp bypass
+local function TeleportToThePlayer()
+    local AbleToBeTeleportedTo = nil
+if (HRP.Position - Opponent.Character.HumanoidRootPart.Position).magnitude <= RangeOpponentHasToBeInToTP then
+   AbleToBeTeleportedTo = true
+   else
+   AbleToBeTeleportedTo = false
+end
+if AbleToBeTeleportedTo == true then
+    HRP.CFrame = CFrame.new(Opponent.Character.HumanoidRootPart.Position + Vector3.new(0,3.5,3.5))
+    local args = {[1] = "InputBegan",[2] = {["Input"] = Enum.KeyCode[AttackToUse]}} game:GetService("Players").LocalPlayer.Character.RemoteEvent:FireServer(unpack(args))
+else print(Opponent.Name .. " is too far.") end
+end
+---- The Main Function!!!!!
+UIs.InputBegan:Connect(function(pressed)
+if pressed.KeyCode == Enum.KeyCode.L then
+TeleportToThePlayer()
+end
+end)
